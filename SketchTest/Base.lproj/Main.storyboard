@@ -1,26 +1,264 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AUK-Hs-cjv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Sketch Paper View Controller-->
+        <scene sceneID="zQu-AB-YoR">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SketchPaperViewController" storyboardIdentifier="SketchPaperViewController" id="AUK-Hs-cjv" customClass="SketchPaperViewController" customModule="SketchTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="3wo-ra-kIl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vf3-gv-i7I"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="rQa-37-uS1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5y-fL-dNv" customClass="ATSketchView" customModule="SketchTest" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="20" width="383" height="647"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MmH-Et-DOf" customClass="ATControlPanelView" customModule="SketchTest" customModuleProvider="target">
+                                <rect key="frame" x="-4" y="631" width="383" height="250"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="N0Z-I1-eCP">
+                                        <rect key="frame" x="6" y="203" width="371" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="g9J-Cm-MVY"/>
+                                            <constraint firstAttribute="width" constant="248" id="tXe-aB-qmt"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="tXe-aB-qmt"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="lineWidthSliderChanged:" destination="AUK-Hs-cjv" eventType="valueChanged" id="d8K-gG-fna"/>
+                                        </connections>
+                                    </slider>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvu-Ay-WAj">
+                                        <rect key="frame" x="169.5" y="37" width="45" height="45"/>
+                                        <state key="normal" image="PencilTool"/>
+                                        <state key="selected" image="SelectedPencilTool"/>
+                                        <connections>
+                                            <action selector="selectPencil:" destination="AUK-Hs-cjv" eventType="touchUpInside" id="i3b-AB-eD6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Faf-GW-Rt7">
+                                        <rect key="frame" x="116.5" y="37" width="45" height="45"/>
+                                        <state key="normal" image="FingerTool"/>
+                                        <state key="selected" image="SelectedFingerTool"/>
+                                        <connections>
+                                            <action selector="selectFinger:" destination="AUK-Hs-cjv" eventType="touchUpInside" id="MpY-Pj-jNg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uq3-ju-GM4">
+                                        <rect key="frame" x="222.5" y="37" width="45" height="45"/>
+                                        <state key="normal" image="SmartPencilTool"/>
+                                        <state key="selected" image="SelectedSmartPencilTool"/>
+                                        <connections>
+                                            <action selector="selectSmartPencil:" destination="AUK-Hs-cjv" eventType="touchUpInside" id="Nr2-9S-2Io"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• • •" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obU-i7-Usy">
+                                        <rect key="frame" x="175" y="8" width="34" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0l-5L-ps7">
+                                        <rect key="frame" x="275.5" y="37" width="45" height="45"/>
+                                        <state key="normal" image="EraserTool"/>
+                                        <state key="selected" image="SelectedEraserTool"/>
+                                        <connections>
+                                            <action selector="selectEraser:" destination="AUK-Hs-cjv" eventType="touchUpInside" id="55Z-Zo-pY9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYR-PY-Dqb">
+                                        <rect key="frame" x="328.5" y="44.5" width="30" height="30"/>
+                                        <state key="normal" title="&gt;&gt;"/>
+                                        <connections>
+                                            <action selector="redo:" destination="AUK-Hs-cjv" eventType="touchUpInside" id="LIf-4a-uVf"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65v-3U-Ma8" customClass="ATColorPicker" customModule="SketchTest" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="90" width="367" height="105"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvj-Ml-WsF" customClass="ATBrushButton" customModule="SketchTest" customModuleProvider="target">
+                                        <rect key="frame" x="63.5" y="37" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="fvj-Ml-WsF" secondAttribute="height" multiplier="1:1" id="WHq-BK-Cn8"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="selectedWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="WHq-BK-Cn8"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="selectBrush:" destination="AUK-Hs-cjv" eventType="touchUpInside" id="XEf-d8-09C"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rml-kT-6wr">
+                                        <rect key="frame" x="25.5" y="44.5" width="30" height="30"/>
+                                        <state key="normal" title="&lt;&lt;"/>
+                                        <connections>
+                                            <action selector="undo:" destination="AUK-Hs-cjv" eventType="touchUpInside" id="WzH-qb-3UE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fvj-Ml-WsF" secondAttribute="trailing" constant="8" id="04C-YX-f1n"/>
+                                    <constraint firstItem="N0Z-I1-eCP" firstAttribute="leading" secondItem="MmH-Et-DOf" secondAttribute="leading" constant="8" id="0wg-hG-gh3"/>
+                                    <constraint firstItem="uq3-ju-GM4" firstAttribute="leading" secondItem="Xvu-Ay-WAj" secondAttribute="trailing" constant="8" id="1rA-bT-Vgg"/>
+                                    <constraint firstItem="y0l-5L-ps7" firstAttribute="leading" secondItem="uq3-ju-GM4" secondAttribute="trailing" constant="8" id="4Mj-7e-Mmn"/>
+                                    <constraint firstItem="obU-i7-Usy" firstAttribute="centerY" secondItem="MmH-Et-DOf" secondAttribute="centerY" id="7Ds-lF-ed2"/>
+                                    <constraint firstItem="Xvu-Ay-WAj" firstAttribute="centerX" secondItem="MmH-Et-DOf" secondAttribute="centerX" id="7xj-eq-jtQ"/>
+                                    <constraint firstItem="Xvu-Ay-WAj" firstAttribute="leading" secondItem="Faf-GW-Rt7" secondAttribute="trailing" constant="8" id="ByW-Tv-qdn"/>
+                                    <constraint firstItem="fvj-Ml-WsF" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="8" id="Eag-xv-2lI"/>
+                                    <constraint firstItem="y0l-5L-ps7" firstAttribute="baseline" secondItem="uq3-ju-GM4" secondAttribute="baseline" id="Hst-Da-Oql"/>
+                                    <constraint firstItem="65v-3U-Ma8" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="9" id="KRF-uQ-aad"/>
+                                    <constraint firstItem="y0l-5L-ps7" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="8" id="Kc0-3F-MGN"/>
+                                    <constraint firstItem="Rml-kT-6wr" firstAttribute="top" secondItem="Faf-GW-Rt7" secondAttribute="bottom" constant="1" id="Lbo-Lj-ZDl"/>
+                                    <constraint firstItem="uq3-ju-GM4" firstAttribute="leading" secondItem="Xvu-Ay-WAj" secondAttribute="trailing" constant="8" id="Mf0-75-AGt"/>
+                                    <constraint firstItem="fvj-Ml-WsF" firstAttribute="top" secondItem="AYR-PY-Dqb" secondAttribute="bottom" constant="3" id="Mwm-ux-ySR"/>
+                                    <constraint firstAttribute="bottom" secondItem="65v-3U-Ma8" secondAttribute="bottom" constant="10" id="O6F-UV-n5b"/>
+                                    <constraint firstItem="obU-i7-Usy" firstAttribute="top" secondItem="MmH-Et-DOf" secondAttribute="top" constant="8" id="OIb-yU-adC"/>
+                                    <constraint firstAttribute="trailing" secondItem="AYR-PY-Dqb" secondAttribute="trailing" constant="8" id="OMY-Pu-NyM"/>
+                                    <constraint firstItem="65v-3U-Ma8" firstAttribute="leading" secondItem="MmH-Et-DOf" secondAttribute="leading" constant="8" id="OqK-zG-eFK"/>
+                                    <constraint firstItem="N0Z-I1-eCP" firstAttribute="top" secondItem="65v-3U-Ma8" secondAttribute="bottom" constant="8" id="P0U-Tg-lmT"/>
+                                    <constraint firstAttribute="height" constant="250" id="QVS-af-X7Q"/>
+                                    <constraint firstItem="AYR-PY-Dqb" firstAttribute="leading" secondItem="Rml-kT-6wr" secondAttribute="trailing" constant="8" id="SLF-71-vSk"/>
+                                    <constraint firstItem="obU-i7-Usy" firstAttribute="centerY" secondItem="MmH-Et-DOf" secondAttribute="centerY" id="TU4-7h-uoJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="N0Z-I1-eCP" secondAttribute="bottom" constant="17" id="WIQ-p0-8hD"/>
+                                    <constraint firstAttribute="trailing" secondItem="65v-3U-Ma8" secondAttribute="trailing" constant="8" id="WSf-I7-0bP"/>
+                                    <constraint firstItem="65v-3U-Ma8" firstAttribute="top" secondItem="y0l-5L-ps7" secondAttribute="bottom" constant="8" id="Xpt-aS-OVW"/>
+                                    <constraint firstItem="fvj-Ml-WsF" firstAttribute="baseline" secondItem="Faf-GW-Rt7" secondAttribute="baseline" id="YPs-cE-0qq"/>
+                                    <constraint firstItem="Xvu-Ay-WAj" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="8" id="bZy-nM-gpd"/>
+                                    <constraint firstItem="65v-3U-Ma8" firstAttribute="top" secondItem="Faf-GW-Rt7" secondAttribute="bottom" constant="8" id="bhb-BJ-b1v"/>
+                                    <constraint firstItem="65v-3U-Ma8" firstAttribute="top" secondItem="uq3-ju-GM4" secondAttribute="bottom" constant="8" id="dZm-b8-UdV"/>
+                                    <constraint firstItem="Faf-GW-Rt7" firstAttribute="leading" secondItem="fvj-Ml-WsF" secondAttribute="trailing" constant="8" id="dhk-i8-DuV"/>
+                                    <constraint firstItem="fvj-Ml-WsF" firstAttribute="width" secondItem="Faf-GW-Rt7" secondAttribute="width" id="ghf-ZW-Mak"/>
+                                    <constraint firstItem="65v-3U-Ma8" firstAttribute="top" secondItem="fvj-Ml-WsF" secondAttribute="bottom" constant="8" id="gzG-7e-rf5"/>
+                                    <constraint firstAttribute="trailing" secondItem="N0Z-I1-eCP" secondAttribute="trailing" constant="8" id="hap-5Z-eX3"/>
+                                    <constraint firstItem="Xvu-Ay-WAj" firstAttribute="baseline" secondItem="Faf-GW-Rt7" secondAttribute="baseline" id="hlC-3F-rRq"/>
+                                    <constraint firstItem="fvj-Ml-WsF" firstAttribute="width" secondItem="y0l-5L-ps7" secondAttribute="width" id="i3c-9U-vn6"/>
+                                    <constraint firstItem="Faf-GW-Rt7" firstAttribute="leading" secondItem="fvj-Ml-WsF" secondAttribute="trailing" constant="8" id="j3f-1A-emD"/>
+                                    <constraint firstItem="65v-3U-Ma8" firstAttribute="top" secondItem="Xvu-Ay-WAj" secondAttribute="bottom" constant="8" id="jDv-0W-yVh"/>
+                                    <constraint firstAttribute="trailing" secondItem="y0l-5L-ps7" secondAttribute="trailing" constant="8" id="jMc-ln-m0C"/>
+                                    <constraint firstItem="Xvu-Ay-WAj" firstAttribute="leading" secondItem="Faf-GW-Rt7" secondAttribute="trailing" constant="8" id="nFF-eY-1na"/>
+                                    <constraint firstItem="uq3-ju-GM4" firstAttribute="leading" secondItem="Xvu-Ay-WAj" secondAttribute="trailing" constant="8" id="nJG-9U-GZ2"/>
+                                    <constraint firstItem="Rml-kT-6wr" firstAttribute="top" secondItem="fvj-Ml-WsF" secondAttribute="bottom" id="ndP-wT-d2I"/>
+                                    <constraint firstItem="uq3-ju-GM4" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="8" id="nfi-sZ-ZIT"/>
+                                    <constraint firstItem="fvj-Ml-WsF" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="9" id="nq7-zY-SvZ"/>
+                                    <constraint firstItem="AYR-PY-Dqb" firstAttribute="leading" secondItem="y0l-5L-ps7" secondAttribute="trailing" constant="8" id="o9s-Tj-iTF"/>
+                                    <constraint firstItem="obU-i7-Usy" firstAttribute="centerX" secondItem="MmH-Et-DOf" secondAttribute="centerX" id="qFT-Fc-Oe0"/>
+                                    <constraint firstItem="AYR-PY-Dqb" firstAttribute="centerY" secondItem="y0l-5L-ps7" secondAttribute="centerY" id="r3I-W7-5H7"/>
+                                    <constraint firstItem="y0l-5L-ps7" firstAttribute="leading" secondItem="uq3-ju-GM4" secondAttribute="trailing" constant="8" id="rRk-9w-xdw"/>
+                                    <constraint firstItem="y0l-5L-ps7" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="8" id="rTc-dz-l70"/>
+                                    <constraint firstItem="Xvu-Ay-WAj" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="8" id="rZ3-lQ-IHE"/>
+                                    <constraint firstItem="uq3-ju-GM4" firstAttribute="baseline" secondItem="Faf-GW-Rt7" secondAttribute="baseline" id="ruu-24-KHE"/>
+                                    <constraint firstItem="Rml-kT-6wr" firstAttribute="baseline" secondItem="AYR-PY-Dqb" secondAttribute="baseline" id="rwi-Tg-J7S"/>
+                                    <constraint firstItem="fvj-Ml-WsF" firstAttribute="height" secondItem="y0l-5L-ps7" secondAttribute="height" id="sPo-IA-d5j"/>
+                                    <constraint firstItem="Faf-GW-Rt7" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="8" id="sWK-5l-ty2"/>
+                                    <constraint firstItem="65v-3U-Ma8" firstAttribute="leading" secondItem="MmH-Et-DOf" secondAttribute="leading" constant="8" id="uNA-ce-WQH"/>
+                                    <constraint firstItem="fvj-Ml-WsF" firstAttribute="leading" secondItem="Rml-kT-6wr" secondAttribute="trailing" constant="8" id="uah-5t-1km"/>
+                                    <constraint firstItem="Faf-GW-Rt7" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="8" id="yJ3-aF-h4y"/>
+                                    <constraint firstItem="uq3-ju-GM4" firstAttribute="top" secondItem="obU-i7-Usy" secondAttribute="bottom" constant="8" id="zXq-UB-Buw"/>
+                                    <constraint firstItem="Rml-kT-6wr" firstAttribute="centerY" secondItem="fvj-Ml-WsF" secondAttribute="centerY" id="zjY-Sy-d1h"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Lbo-Lj-ZDl"/>
+                                        <exclude reference="ndP-wT-d2I"/>
+                                        <exclude reference="rwi-Tg-J7S"/>
+                                        <exclude reference="04C-YX-f1n"/>
+                                        <exclude reference="Mwm-ux-ySR"/>
+                                        <exclude reference="YPs-cE-0qq"/>
+                                        <exclude reference="i3c-9U-vn6"/>
+                                        <exclude reference="nq7-zY-SvZ"/>
+                                        <exclude reference="sPo-IA-d5j"/>
+                                        <exclude reference="KRF-uQ-aad"/>
+                                        <exclude reference="O6F-UV-n5b"/>
+                                        <exclude reference="uNA-ce-WQH"/>
+                                        <exclude reference="dhk-i8-DuV"/>
+                                        <exclude reference="sWK-5l-ty2"/>
+                                        <exclude reference="ByW-Tv-qdn"/>
+                                        <exclude reference="hlC-3F-rRq"/>
+                                        <exclude reference="rZ3-lQ-IHE"/>
+                                        <exclude reference="7Ds-lF-ed2"/>
+                                        <exclude reference="TU4-7h-uoJ"/>
+                                        <exclude reference="1rA-bT-Vgg"/>
+                                        <exclude reference="Mf0-75-AGt"/>
+                                        <exclude reference="nfi-sZ-ZIT"/>
+                                        <exclude reference="ruu-24-KHE"/>
+                                        <exclude reference="Hst-Da-Oql"/>
+                                        <exclude reference="jMc-ln-m0C"/>
+                                        <exclude reference="rRk-9w-xdw"/>
+                                        <exclude reference="rTc-dz-l70"/>
+                                        <exclude reference="OMY-Pu-NyM"/>
+                                        <exclude reference="SLF-71-vSk"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="handleLabel" destination="obU-i7-Usy" id="NWW-7K-qhC"/>
+                                    <outlet property="positionConstraint" destination="kiL-Mq-PJc" id="wz2-aQ-UkZ"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Vf3-gv-i7I" firstAttribute="top" secondItem="s5y-fL-dNv" secondAttribute="bottom" id="FqV-tN-dxa"/>
+                            <constraint firstItem="MmH-Et-DOf" firstAttribute="leading" secondItem="rQa-37-uS1" secondAttribute="leadingMargin" constant="-20" id="Hmw-4m-LDg"/>
+                            <constraint firstItem="s5y-fL-dNv" firstAttribute="leading" secondItem="rQa-37-uS1" secondAttribute="leadingMargin" constant="-20" id="Vcu-7P-p6I"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MmH-Et-DOf" secondAttribute="trailing" constant="-20" id="icp-pu-ULj"/>
+                            <constraint firstItem="Vf3-gv-i7I" firstAttribute="top" secondItem="MmH-Et-DOf" secondAttribute="top" constant="36" id="kiL-Mq-PJc"/>
+                            <constraint firstItem="s5y-fL-dNv" firstAttribute="top" secondItem="3wo-ra-kIl" secondAttribute="bottom" id="trE-P2-LM1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s5y-fL-dNv" secondAttribute="trailing" constant="-20" id="yev-b6-UXo"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="brushButton" destination="fvj-Ml-WsF" id="HKL-39-UNJ"/>
+                        <outlet property="colorPicker" destination="65v-3U-Ma8" id="ooD-hj-UCY"/>
+                        <outlet property="controlPanel" destination="MmH-Et-DOf" id="Ln3-pg-CvF"/>
+                        <outlet property="eraserButton" destination="y0l-5L-ps7" id="1Ka-aK-Dah"/>
+                        <outlet property="fingerButton" destination="Faf-GW-Rt7" id="Atd-Px-Xon"/>
+                        <outlet property="lineWidthSlider" destination="N0Z-I1-eCP" id="T2n-Zy-3cH"/>
+                        <outlet property="pencilButton" destination="Xvu-Ay-WAj" id="cVO-2c-YXT"/>
+                        <outlet property="redoButton" destination="AYR-PY-Dqb" id="Z7d-nE-EZW"/>
+                        <outlet property="sketchView" destination="s5y-fL-dNv" id="vXH-eO-Bux"/>
+                        <outlet property="smartPencilButton" destination="uq3-ju-GM4" id="4Gs-zm-oVe"/>
+                        <outlet property="undoButton" destination="Rml-kT-6wr" id="tv0-fE-TGd"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PuG-6F-SzG" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="105" y="918"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="EraserTool" width="45" height="45"/>
+        <image name="FingerTool" width="45" height="45"/>
+        <image name="PencilTool" width="45" height="45"/>
+        <image name="SelectedEraserTool" width="45" height="45"/>
+        <image name="SelectedFingerTool" width="45" height="45"/>
+        <image name="SelectedPencilTool" width="45" height="45"/>
+        <image name="SelectedSmartPencilTool" width="45" height="45"/>
+        <image name="SmartPencilTool" width="45" height="45"/>
+    </resources>
 </document>

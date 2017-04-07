@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "22DB20B895537CC0B7E35C9E4476F3E2E5336B8E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "22DB20B895537CC0B7E35C9E4476F3E2E5336B8E" : 9223372036854775807,
+    "3DDA314AB005582D55FAD56E2B99FCD81B5B0F3D" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E4D66885-6ABF-4FCA-B9FD-A93B66B9BEC3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "22DB20B895537CC0B7E35C9E4476F3E2E5336B8E" : "SketchTest\/",
+    "3DDA314AB005582D55FAD56E2B99FCD81B5B0F3D" : "SketchTest\/SketchTest\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SketchTest",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SketchTest.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CenterforYouthEngagement\/Sketch.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "22DB20B895537CC0B7E35C9E4476F3E2E5336B8E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CenterforYouthEngagement\/SketchTest.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3DDA314AB005582D55FAD56E2B99FCD81B5B0F3D"
+    }
+  ]
+}
